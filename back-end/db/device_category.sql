@@ -1,4 +1,8 @@
+DROP DATABASE IF EXISTS device_category;
+
 CREATE DATABASE IF NOT EXISTS device_category;
+
+USE device_category;
 
 CREATE TABLE IF NOT EXISTS category (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -7,7 +11,7 @@ CREATE TABLE IF NOT EXISTS category (
 
 CREATE TABLE IF NOT EXISTS device (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    category VARCHAR(128) NOT NULL,
+    name VARCHAR(100) NOT NULL,
     cor VARCHAR(16) NOT NULL,
     part_number INTEGER NOT NULL,
     id_category INTEGER NOT NULL,
