@@ -4,7 +4,6 @@ const { findByCategory } = require('../services/CategoryService');
 const categoryExists = async (req, res, next) => {
     const { name } = req.body;
     const category = await findByCategory(name);
-    console.log(category)
 
     if (!category) return next();
 
