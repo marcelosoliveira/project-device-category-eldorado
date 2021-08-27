@@ -4,7 +4,7 @@ const status = require('http-status-codes');
 const cors = require('cors');
 // const swaggerUi = require('swagger-ui-express'),
 // swaggerDocument = require('./swagger.json');
-
+const deviceRouter = require('./src/routes/DeviceRouter');
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -17,6 +17,7 @@ app.use(express.json());
 
 const { PORT } = process.env;
 
+app.use("/devices", deviceRouter);
 
 app.listen(PORT, () => {
     console.log(`App executando na porta ${ PORT }`);
