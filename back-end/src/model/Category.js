@@ -6,15 +6,14 @@ const listAllCategory = async () => {
     return category;
 }
 
-const findByCategory = async (id) => {
-    const category = await conn.execute(`SELECT * FROM category WHERE c.id = ?`, [id]);
+const findByCategory = async (name) => {
+    const category = await conn.execute(`SELECT * FROM category WHERE c.id = ?`, [name]);
 
     return category;
 }
 
 const createCategory = async (name) => {
-    await conn.execute(`INSERT INTO category(name) VALUES(?)`,
-    [name, cor, part_number, id_category]);
+    await conn.execute(`INSERT INTO category(name) VALUES(?)`, [name]);
 }
 
 module.exports = {
