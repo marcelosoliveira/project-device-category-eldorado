@@ -1,7 +1,7 @@
 const status = require('http-status-codes');
 const categoryService = require('../services/CategoryService');
 
-const listAllCategory = async () => {
+const listAllCategory = async (_req, res) => {
     try {
         const category = await categoryService.listAllCategory();
         res.status(status.OK).send(category);        

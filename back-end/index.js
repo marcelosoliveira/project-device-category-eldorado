@@ -5,6 +5,7 @@ const cors = require('cors');
 // const swaggerUi = require('swagger-ui-express'),
 // swaggerDocument = require('./swagger.json');
 const deviceRouter = require('./src/routes/DeviceRouter');
+const categoryRouter = require('./src/routes/CategoryRouter');
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -18,6 +19,7 @@ app.use(express.json());
 const { PORT } = process.env;
 
 app.use("/devices", deviceRouter);
+app.use("/category", categoryRouter);
 
 app.listen(PORT, () => {
     console.log(`App executando na porta ${ PORT }`);
