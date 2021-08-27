@@ -1,11 +1,12 @@
 const status = require('http-status-codes');
 const { findByCategory } = require('../services/CategoryService');
 
-const categoryExists = (req, res, next) => {
+const categoryExists = async (req, res, next) => {
     const { name } = req.body;
-    const category = findByCategory(name);
+    const category = await findByCategory(name);
+    console.log(category)
 
-    if (!category) next();
+    if (!category) return next();
 
     res.status(status.CONFLICT).send({ message: "Nome de categoria já existe!" });
 }

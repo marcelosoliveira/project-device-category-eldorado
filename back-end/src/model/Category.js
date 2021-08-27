@@ -7,9 +7,9 @@ const listAllCategory = async () => {
 }
 
 const findByCategory = async (name) => {
-    const category = await conn.execute(`SELECT * FROM category WHERE c.id = ?`, [name]);
+    const [category] = await conn.execute(`SELECT * FROM category WHERE name = ?`, [name]);
 
-    return category;
+    return category[0];
 }
 
 const createCategory = async (name) => {
