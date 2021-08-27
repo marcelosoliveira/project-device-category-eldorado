@@ -6,6 +6,13 @@ const listAllDevices = async () => {
     return devices;
 }
 
+const listAllDevicesFilter = async (id) => {
+    const devices = await deviceModel.listAllDevicesFilter(id);
+
+    return devices;
+}
+
 module.exports = {
     listAllDevices,
+    listAllDevicesFilter,
 }
