@@ -7,7 +7,7 @@ USE device_category;
 CREATE TABLE IF NOT EXISTS category (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL
-) ENGINE InnoDB DEFAULT CHARSET='utf8';
+) ENGINE InnoDB;
 
 CREATE TABLE IF NOT EXISTS device (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -16,7 +16,9 @@ CREATE TABLE IF NOT EXISTS device (
     part_number INTEGER NOT NULL,
     id_category INTEGER NOT NULL,
     FOREIGN KEY (id_category) REFERENCES category(id)
-) ENGINE InnoDB DEFAULT CHARSET='utf8';
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE InnoDB;
 
 INSERT INTO category(name) VALUES('Eletronicos');
 INSERT INTO category(name) VALUES('Jardim');

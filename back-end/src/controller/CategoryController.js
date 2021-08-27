@@ -20,7 +20,18 @@ const createCategory = async (req, res) => {
     }
 }
 
+const deleteCategory = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await categoryService.deleteCategory(id);
+        res.status(status.OK).send({ message: `Categoria deletado com sucesso Id: ${id}`});
+    } catch (error) {
+        res.status(status.INTERNAL_SERVER_ERROR).send({ error: error.message });
+    }
+}
+
 module.exports = {
     listAllCategory,
     createCategory,
+    deleteCategory,
 }

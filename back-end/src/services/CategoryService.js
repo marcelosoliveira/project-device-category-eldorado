@@ -16,8 +16,13 @@ const createCategory = async (name) => {
     await categoryModel.createCategory(name);
 }
 
+const deleteCategory  = async (id) => {
+    await categoryModel.deleteCategory(id);
+}
+
 module.exports = {
     listAllCategory,
     findByCategory,
     createCategory,
+    deleteCategory,
 }

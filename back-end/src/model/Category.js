@@ -16,8 +16,13 @@ const createCategory = async (name) => {
     await conn.execute(`INSERT INTO category(name) VALUES(?)`, [name]);
 }
 
+const deleteCategory = async (id) => {
+    await conn.execute(`DELETE FROM category WHERE id = ?`, [id]);
+}
+
 module.exports = {
     listAllCategory,
     findByCategory,
     createCategory,
+    deleteCategory,
 }
