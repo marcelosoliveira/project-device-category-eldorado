@@ -17,7 +17,7 @@ const listAllDevicesFilter = async (id) => {
 }
 
 const createDevice = async (name, cor, part_number, id_category) => {
-    await conn.execute(`INSERT INTO device(name, cor, part_number, id_number)
+    await conn.execute(`INSERT INTO device(name, cor, part_number, id_category)
     VALUES(?, ?, ?, ?)`, [name, cor, part_number, id_category]);
 }
 
