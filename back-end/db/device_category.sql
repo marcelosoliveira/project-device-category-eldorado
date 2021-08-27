@@ -19,18 +19,18 @@ CREATE TABLE IF NOT EXISTS device (
 ) ENGINE InnoDB DEFAULT CHARSET='utf8';
 
 INSERT INTO category(name) VALUES('Eletronicos');
-INSERT INTO category(name) VALUES('Serviços');
+INSERT INTO category(name) VALUES('Jardim');
 INSERT INTO category(name) VALUES('Mecânica');
 INSERT INTO category(name) VALUES('Cozinha');
 INSERT INTO category(name) VALUES('Automotivos');
 
-INSERT INTO device(category, cor, part_number, id_category)
-VALUES('Eletronicos', 'Azul', 1111, 1);
-INSERT INTO device(category, cor, part_number, id_category)
-VALUES('Automotivos', 'Verde', 1121, 5);
-INSERT INTO device(category, cor, part_number, id_category)
-VALUES('Mecânica', 'Preto', 1231, 3);
-INSERT INTO device(category, cor, part_number, id_category)
-VALUES('Serviços', 'Marrom', 1431, 2);
-INSERT INTO device(category, cor, part_number, id_category)
-VALUES('Cozinha', 'Vermelho', 1141, 4);
+INSERT INTO device(name, cor, part_number, id_category)
+VALUES('Notbook', 'Azul', 1111, 1);
+INSERT INTO device(name, cor, part_number, id_category)
+VALUES('Carro', 'Verde', 1121, 5);
+INSERT INTO device(name, cor, part_number, id_category)
+VALUES('Chave Inglesa', 'Preto', 1231, 3);
+INSERT INTO device(name, cor, part_number, id_category)
+VALUES('Vazo', 'Marrom', 1431, 2);
+INSERT INTO device(name, cor, part_number, id_category)
+VALUES('Colher', 'Vermelho', 1141, 4);
