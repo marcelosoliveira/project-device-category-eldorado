@@ -16,8 +16,19 @@ const listAllDevicesFilter = async (id) => {
     return devices;
 }
 
+const createDevice = async (name, cor, part_number, id_category) => {
+    await conn.execute(`INSERT INTO device(name, cor, part_number, id_number)
+    VALUES(?, ?, ?, ?)`, [name, cor, part_number, id_category]);
+}
+
+const deleteDevice = async (id) => {
+    await conn.execute(`DELETE FROM device WHERE id = ?`, [id]);
+}
+
 
 module.exports = {
     listAllDevices,
     listAllDevicesFilter,
+    createDevice,
+    deleteDevice,
 }
