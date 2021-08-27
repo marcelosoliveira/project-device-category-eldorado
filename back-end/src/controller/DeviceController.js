@@ -22,7 +22,29 @@ const listAllDevicesFilter = async (req, res) => {
     }
 }
 
+const createDevice = async (req, res) => {
+    try {
+        const { name, cor, part_number, id_category } = req.body;
+        await deviceModel.createDevice(name, cor, part_number, id_category);
+        res.status(status.CREATED).send({ message: "Dispositivo criado com sucesso" });
+    } catch (error) {
+        res.status(status.INTERNAL_SERVER_ERROR).send({ error: error.message });
+    }
+}
+
+const deleteDevice = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await deviceModel.deleteDevice(id);
+        res.status(status.OK).send({ message: `Dispositivo deletado com sucesso Id: ${id}`});      
+    } catch (error) {
+        res.status(status.INTERNAL_SERVER_ERROR).send({ error: error.message });
+    }
+}
+
 module.exports = {
     listAllDevices,
     listAllDevicesFilter,
+    createDevice,
+    deleteDevice,
 }
