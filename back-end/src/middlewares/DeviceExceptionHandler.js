@@ -17,6 +17,10 @@ const fieldValidDevice = async (req, res, next) => {
         return res.status(status.BAD_REQUEST).send({ message: "Campo número da peça inválido!" });
     }
 
+    if (!id_category || typeof id_category != 'number') {
+        return res.status(status.BAD_REQUEST).send({ message: "Campo identificação de categoria inválido!" });
+    }
+
     const device = await deviceService.findByDevice(part_number);
 
     if (device) return res.status(status.CONFLICT).send({ message: "Número de peça do dispositivo já existe!" });
