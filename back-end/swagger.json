@@ -3,14 +3,14 @@
     "info": {
       "title": "Projeto Dispositivos com Categorias",
       "description": "API Dispositivos com Categorias swagger",
-      "termsOfService": "http://localhost:3000/terms",
+      "termsOfService": "http://localhost:3000/swagger-ui.html",
       "contact": {
         "email": "msbobsk8@gmail.com"
       },
       "version": "1.0"
     },
     "host": "localhost:3000",
-    "basePath": "/api/v1",
+    "basePath": "/",
     "tags": [
         {
           "name": "device",
@@ -25,7 +25,7 @@
       "http"
     ],
     "paths": {
-      "/device": {
+      "/api/v1/device": {
         "get": {
           "tags": [
             "device"
@@ -36,7 +36,7 @@
           "responses": {}
         }
       },
-      "/device/{id}": {
+      "/api/v1/device/{id}": {
         "get": {
           "tags": [
             "device"
@@ -54,7 +54,7 @@
           "responses": {}
         } 
       },
-      "/device/create": {
+      "/api/v1/device/create": {
         "post": {
           "tags": [
             "device"
@@ -80,7 +80,7 @@
           "responses": {}
         }
       },
-      "/device/delete/{id}": {
+      "/api/v1/device/delete/{id}": {
         "delete": {
           "tags": [
             "device"
@@ -98,7 +98,7 @@
           "responses": {}
         } 
       },
-      "/category": {
+      "/api/v1/category": {
         "get": {
           "tags": [
             "category"
@@ -109,7 +109,7 @@
           "responses": {}
         }
       },
-      "/category/create": {
+      "/api/v1/category/create": {
         "post": {
           "tags": [
             "category"
@@ -132,7 +132,7 @@
           "responses": {}
         }
       },
-      "/category/delete/{id}": {
+      "/api/v1/category/delete/{id}": {
         "delete": {
           "tags": [
             "category"

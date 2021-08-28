@@ -19,8 +19,8 @@ app.use(
 
 const { PORT } = process.env;
 
-app.use("/device", deviceRouter);
-app.use("/category", categoryRouter);
+app.use("/api/v1/device", deviceRouter);
+app.use("/api/v1/category", categoryRouter);
 
 app.listen(PORT, () => {
     console.log(`App executando na porta ${ PORT }`);

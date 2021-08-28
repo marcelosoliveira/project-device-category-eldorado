@@ -1,8 +1,9 @@
 const status = require('http-status-codes');
 const deviceService = require('../services/DeviceService');
+const categoryService = require('../services/CategoryService');
 
 const fieldValidDevice = async (req, res, next) => {
-    const { name, color, part_number } = req.body;
+    const { name, color, part_number, id_category } = req.body;
 
     if (!name || typeof name != "string" || name.length < 3 || name.length > 100) {
         return res.status(status.BAD_REQUEST).send({ message: "Campo nome inválido!" });
@@ -20,9 +21,24 @@ const fieldValidDevice = async (req, res, next) => {
 
     if (device) return res.status(status.CONFLICT).send({ message: "Número de peça do dispositivo já existe!" });
 
+    const category = await categoryService.findById(id_category);
+
+    if (!category) return res.status(status.NOT_FOUND).send({ message: "Id de categoria não encontrado!" });
+
+    next();
+}
+
+const deviceNotFound = async (req, res, next) => {
+    const { id } = req.params;
+
+    const device = await deviceService.findById(id);
+
+    if (!device) return res.status(status.NOT_FOUND).send({ message: `Dispositivo não encontrada! ID: ${id}` });
+
     next();
 }
 
 module.exports = {
     fieldValidDevice,
+    deviceNotFound,
 }

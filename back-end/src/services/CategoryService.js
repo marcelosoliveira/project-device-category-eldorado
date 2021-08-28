@@ -12,6 +12,12 @@ const findByCategory = async (name) => {
     return category;
 }
 
+const findById = async (id) => {
+    const category = await categoryModel.findById(id);
+
+    return category;
+}
+
 const createCategory = async (name) => {
     await categoryModel.createCategory(name);
 }
@@ -23,6 +29,7 @@ const deleteCategory  = async (id) => {
 module.exports = {
     listAllCategory,
     findByCategory,
+    findById,
     createCategory,
     deleteCategory,
 }

@@ -27,6 +27,12 @@ const findByDevice = async (part_number) => {
     return device[0];
 }
 
+const findById = async (id) => {
+    const [device] = await conn.execute(`SELECT * FROM device WHERE id = ?`, [id]);
+
+    return device[0];
+}
+
 const deleteDevice = async (id) => {
     await conn.execute(`DELETE FROM device WHERE id = ?`, [id]);
 }
@@ -37,5 +43,6 @@ module.exports = {
     listAllDevicesFilter,
     createDevice,
     findByDevice,
+    findById,
     deleteDevice,
 }
