@@ -10,13 +10,26 @@
       "version": "1.0"
     },
     "host": "localhost:3000",
-    "basePath": "/",
+    "basePath": "/api/v1",
+    "tags": [
+        {
+          "name": "device",
+          "description": "Recurso do dispositivo"
+        },
+        {
+          "name": "category",
+          "description": "Recurso da categoria"
+        }
+      ],
     "schemes": [
       "http"
     ],
     "paths": {
       "/device": {
         "get": {
+          "tags": [
+            "device"
+          ],
           "summary": "Lista todos dispositivos",
           "description": "Lista todos dispositivos",
           "operationId": "List Devices",
@@ -25,6 +38,9 @@
       },
       "/device/{id}": {
         "get": {
+          "tags": [
+            "device"
+          ],
           "summary": "Filtra dispositivos pelo id da categoria",
           "description": "Filtra dispositivos pelo id da categoria",
           "operationId": "Filtrar",
@@ -40,6 +56,9 @@
       },
       "/device/create": {
         "post": {
+          "tags": [
+            "device"
+          ],
           "summary": "Cadastro de dispositivos",
           "description": "Cadastra Dispositivos com de uma categoria.",
           "operationId": "Devices",
@@ -63,13 +82,68 @@
       },
       "/device/delete/{id}": {
         "delete": {
+          "tags": [
+            "device"
+          ],
           "summary": "Deleta dispositivo pelo id",
           "description": "Deleta dispositivo pelo id",
-          "operationId": "Deletar",
+          "operationId": "Del Device",
           "parameters": [{
             "name": "id",
             "in": "path",
             "description": "Insira um id de dispositivo.",
+            "required": true,
+            "type": "string"
+          }],
+          "responses": {}
+        } 
+      },
+      "/category": {
+        "get": {
+          "tags": [
+            "category"
+          ],
+          "summary": "Lista todas categorias",
+          "description": "Lista todas categorias",
+          "operationId": "List Category",
+          "responses": {}
+        }
+      },
+      "/category/create": {
+        "post": {
+          "tags": [
+            "category"
+          ],
+          "summary": "Cadastro de categorias",
+          "description": "Cadastra categorias.",
+          "operationId": "Category",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/category"
+                },
+                "example": {
+                    "name": "Ortopedia"
+                }
+              }
+            }
+          },
+          "responses": {}
+        }
+      },
+      "/category/delete/{id}": {
+        "delete": {
+          "tags": [
+            "category"
+          ],
+          "summary": "Deleta categoria pelo id",
+          "description": "Deleta categoria pelo id",
+          "operationId": "Del Category",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Insira um id de categoria.",
             "required": true,
             "type": "string"
           }],
@@ -95,7 +169,15 @@
               "type": "number"
             }
           }
-        }
+        },
+        "category": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
       }
     }
 }
