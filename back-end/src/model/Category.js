@@ -1,7 +1,7 @@
 const conn = require('../../config/connect')
 
 const listAllCategory = async () => {
-    const [category] = await conn.execute(`SELECT * FROM category`);
+    const [category] = await conn.execute(`SELECT id AS Id, name AS Name FROM category`);
 
     return category;
 }

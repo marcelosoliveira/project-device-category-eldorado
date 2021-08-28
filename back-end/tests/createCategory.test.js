@@ -28,7 +28,7 @@ describe('4 - Sua aplicação deve ter o endpoint POST `/create`', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar dispositivo com o campo `name` maior que 128 caracteres', async () => {
+  it('Será validado que não é possível cadastrar categoria com o campo `name` maior que 128 caracteres', async () => {
     await frisby
       .post(`${url}/create`,
         {
