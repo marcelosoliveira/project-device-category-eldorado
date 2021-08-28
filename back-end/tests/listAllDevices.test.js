@@ -46,7 +46,6 @@ describe('2 - Sua aplicação deve ter o endpoint GET `/device`', () => {
       .expect('status', 200)
       .then((response) => {
         const { json } = response;
-        console.log(json)
         const firstDevice = json[0];
         const secondDevice = json[1];
         expect(firstDevice.Name).toBe('Notbook');
