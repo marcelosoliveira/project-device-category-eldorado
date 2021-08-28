@@ -7,7 +7,7 @@ const {
 
 const url = 'http://localhost:3000/api/v1';
 
-describe('2 - Sua aplicação deve ter o endpoint GET `/device`', () => {
+describe('Aplicação deve ter o endpoint GET `/device`', () => {
 
   beforeAll(async () => await deleteAndCreateDataBase());
 

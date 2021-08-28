@@ -5,7 +5,7 @@ const {
   deleteAndCreateDataBase
 } = require('./clearDataBase');
 
-const url = 'http://localhost:3000/api/v1/device';
+const url = 'http://localhost:3000/api/v1/category';
 
 describe('Aplicação deve ter o endpoint DELETE `/delete/:id`', () => {
 
@@ -15,23 +15,23 @@ describe('Aplicação deve ter o endpoint DELETE `/delete/:id`', () => {
 
   afterAll(async () => await closeConnection());
 
-  it('Será validado que é possível excluir um dispositivo com sucesso', async () => {
+  it('Será validado que é possível excluir uma categoria com sucesso', async () => {
     await frisby
       .delete(`${url}/delete/${1}`)
       .expect('status', 200)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Dispositivo deletado com sucesso Id: 1");
+        expect(json.message).toBe("Categoria deletada com sucesso Id: 1");
       });
   });
 
-  it('Será validado que não é possivel excluir um dispositivo que não existe', async () => {
+  it('Será validado que não é possivel excluir uma categoria que não existe', async () => {
     await frisby
     .delete(`${url}/delete/${1}`)
     .expect('status', 404)
     .then((response) => {
       const { json } = response;
-      expect(json.message).toBe("Dispositivo não encontrada! ID: 1");
+      expect(json.message).toBe("Categoria não encontrada! ID: 1");
     });
   });
 });

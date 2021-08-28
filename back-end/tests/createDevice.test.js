@@ -7,7 +7,7 @@ const {
 
 const url = 'http://localhost:3000/api/v1/device';
 
-describe('1 - Sua aplicação deve ter o endpoint POST `/create`', () => {
+describe('Aplicação deve ter o endpoint POST `/create`', () => {
 
   beforeAll(async () => await deleteAndCreateDataBase());
 

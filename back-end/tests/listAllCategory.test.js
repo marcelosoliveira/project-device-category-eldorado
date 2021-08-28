@@ -7,7 +7,7 @@ const {
 
 const url = 'http://localhost:3000/api/v1';
 
-describe('2 - Sua aplicação deve ter o endpoint GET `/category`', () => {
+describe('Aplicação deve ter o endpoint GET `/category`', () => {
 
   beforeAll(async () => await deleteAndCreateDataBase());
 
@@ -21,7 +21,6 @@ describe('2 - Sua aplicação deve ter o endpoint GET `/category`', () => {
       .expect('status', 200)
       .then((response) => {
         const { json } = response;
-        console.log(json)
         const firstCategory = json[0];
         const secondCategory = json[1];
         expect(firstCategory.Name).toBe('Eletronicos');
