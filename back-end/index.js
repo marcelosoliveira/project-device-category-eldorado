@@ -19,7 +19,7 @@ app.use(
 
 const { PORT } = process.env;
 
-app.use("/devices", deviceRouter);
+app.use("/device", deviceRouter);
 app.use("/category", categoryRouter);
 
 app.listen(PORT, () => {

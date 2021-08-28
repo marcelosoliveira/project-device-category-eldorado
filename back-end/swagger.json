@@ -1,0 +1,101 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Projeto Dispositivos com Categorias",
+      "description": "API Dispositivos com Categorias swagger",
+      "termsOfService": "http://localhost:3000/terms",
+      "contact": {
+        "email": "msbobsk8@gmail.com"
+      },
+      "version": "1.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/device": {
+        "get": {
+          "summary": "Lista todos dispositivos",
+          "description": "Lista todos dispositivos",
+          "operationId": "List Devices",
+          "responses": {}
+        }
+      },
+      "/device/{id}": {
+        "get": {
+          "summary": "Filtra dispositivos pelo id da categoria",
+          "description": "Filtra dispositivos pelo id da categoria",
+          "operationId": "Filtrar",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Insira um id de categoria.",
+            "required": true,
+            "type": "string"
+          }],
+          "responses": {}
+        } 
+      },
+      "/device/create": {
+        "post": {
+          "summary": "Cadastro de dispositivos",
+          "description": "Cadastra Dispositivos com de uma categoria.",
+          "operationId": "Devices",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/device"
+                },
+                "example": {
+                    "name": "Computador",
+                    "color": "Preto",
+                    "part_number": 1254,
+                    "id_category": 1
+                }
+              }
+            }
+          },
+          "responses": {}
+        }
+      },
+      "/device/delete/{id}": {
+        "delete": {
+          "summary": "Deleta dispositivo pelo id",
+          "description": "Deleta dispositivo pelo id",
+          "operationId": "Deletar",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Insira um id de dispositivo.",
+            "required": true,
+            "type": "string"
+          }],
+          "responses": {}
+        } 
+      }
+    },
+    "components": {
+      "schemas": {
+        "device": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            },
+            "part_number": {
+              "type": "number"
+            },
+            "id_category": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+}

@@ -12,8 +12,8 @@ const listAllDevicesFilter = async (id) => {
     return devices;
 }
 
-const createDevice = async (name, cor, part_number, id_category) => {
-    await deviceModel.createDevice(name, cor, part_number, id_category);
+const createDevice = async (name, color, part_number, id_category) => {
+    await deviceModel.createDevice(name, color, part_number, id_category);
 }
 
 const findByDevice = async (part_number) => {

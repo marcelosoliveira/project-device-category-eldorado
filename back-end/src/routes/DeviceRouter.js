@@ -8,11 +8,11 @@ const router = express.Router();
 
 router.get("/", listAllDevices);
 
-router.post("/", fieldValidDevice, createDevice);
+router.post("/create", fieldValidDevice, createDevice);
 
 router.get("/:id", listAllDevicesFilter);
 
-router.delete("/:id", deleteDevice);
+router.delete("/delete/:id", deleteDevice);
 
 router.use((err, _req, res, _next) => {
     res.status(status.INTERNAL_SERVER_ERROR).send( { error: `Error! ${err.message}` });
