@@ -1,0 +1,219 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Category Devices Project",
+      "description": "API Devices with swagger Categories",
+      "termsOfService": "http://localhost:3000/swagger-ui.html",
+      "contact": {
+        "email": "msbobsk8@gmail.com"
+      },
+      "version": "1.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+        {
+          "name": "device",
+          "description": "Device resource"
+        },
+        {
+          "name": "category",
+          "description": "Category resource"
+        }
+      ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/api/v1/device": {
+        "get": {
+          "tags": [
+            "device"
+          ],
+          "summary": "List all devices",
+          "description": "List all devices",
+          "operationId": "List Devices",
+          "responses": {}
+        }
+      },
+      "/api/v1/device/{id}": {
+        "get": {
+          "tags": [
+            "device"
+          ],
+          "summary": "Search device by id",
+          "description": "Search device by id",
+          "operationId": "Get Device",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Enter a category id.",
+            "required": true,
+            "type": "string"
+          }],
+          "responses": {}
+        } 
+      },
+      "/api/v1/device/category/{id}": {
+        "get": {
+          "tags": [
+            "device"
+          ],
+          "summary": "Filter devices by category id",
+          "description": "Filter devices by category id",
+          "operationId": "Filter device",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Enter a category id.",
+            "required": true,
+            "type": "string"
+          }],
+          "responses": {}
+        } 
+      },
+      "/api/v1/device/create": {
+        "post": {
+          "tags": [
+            "device"
+          ],
+          "summary": "Device Registration",
+          "description": "Register Devices of a Category.",
+          "operationId": "Devices",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/device"
+                },
+                "example": {
+                    "name": "Computador",
+                    "color": "Preto",
+                    "part_number": 1254,
+                    "id_category": 1
+                }
+              }
+            }
+          },
+          "responses": {}
+        }
+      },
+      "/api/v1/device/delete/{id}": {
+        "delete": {
+          "tags": [
+            "device"
+          ],
+          "summary": "Delete device by id",
+          "description": "Delete device by id",
+          "operationId": "Delete Device",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Enter a device id.",
+            "required": true,
+            "type": "string"
+          }],
+          "responses": {}
+        } 
+      },
+      "/api/v1/category": {
+        "get": {
+          "tags": [
+            "category"
+          ],
+          "summary": "List all categories",
+          "description": "List all categories",
+          "operationId": "List Category",
+          "responses": {}
+        }
+      },
+      "/api/v1/category/{id}": {
+        "get": {
+          "tags": [
+            "category"
+          ],
+          "summary": "Search a category by id",
+          "description": "Search a category by id",
+          "operationId": "Get Category",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Enter a category id.",
+            "required": true,
+            "type": "string"
+          }],
+          "responses": {}
+        } 
+      },
+      "/api/v1/category/create": {
+        "post": {
+          "tags": [
+            "category"
+          ],
+          "summary": "Category registration",
+          "description": "Category registration.",
+          "operationId": "Category",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/category"
+                },
+                "example": {
+                    "name": "Ortopedia"
+                }
+              }
+            }
+          },
+          "responses": {}
+        }
+      },
+      "/api/v1/category/delete/{id}": {
+        "delete": {
+          "tags": [
+            "category"
+          ],
+          "summary": "Delete category by id",
+          "description": "Delete category by id",
+          "operationId": "Del Category",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Enter a category id.",
+            "required": true,
+            "type": "string"
+          }],
+          "responses": {}
+        } 
+      }
+    },
+    "components": {
+      "schemas": {
+        "device": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            },
+            "part_number": {
+              "type": "number"
+            },
+            "id_category": {
+              "type": "number"
+            }
+          }
+        },
+        "category": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+      }
+    }
+}
