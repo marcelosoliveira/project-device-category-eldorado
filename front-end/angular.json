@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/course-manager/browser",
+            "outputPath": "dist/device-category-manager/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "course-manager:build:production"
+              "browserTarget": "device-category-manager:build:production"
             },
             "development": {
-              "browserTarget": "course-manager:build:development"
+              "browserTarget": "device-category-manager:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "course-manager:build"
+            "browserTarget": "device-category-manager:build"
           }
         },
         "test": {
@@ -102,7 +102,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/course-manager/server",
+            "outputPath": "dist/device-category-manager/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
@@ -128,12 +128,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "course-manager:build:development",
-              "serverTarget": "course-manager:server:development"
+              "browserTarget": "device-category-manager:build:development",
+              "serverTarget": "device-category-manager:server:development"
             },
             "production": {
-              "browserTarget": "course-manager:build:production",
-              "serverTarget": "course-manager:server:production"
+              "browserTarget": "device-category-manager:build:production",
+              "serverTarget": "device-category-manager:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -147,12 +147,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "course-manager:build:production",
-              "serverTarget": "course-manager:server:production"
+              "browserTarget": "device-category-manager:build:production",
+              "serverTarget": "device-category-manager:server:production"
             },
             "development": {
-              "browserTarget": "course-manager:build:development",
-              "serverTarget": "course-manager:server:development"
+              "browserTarget": "device-category-manager:build:development",
+              "serverTarget": "device-category-manager:server:development"
             }
           },
           "defaultConfiguration": "production"
@@ -160,5 +160,5 @@
       }
     }
   },
-  "defaultProject": "course-manager"
+  "defaultProject": "device-category-manager"
 }
