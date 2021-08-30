@@ -40,3 +40,5 @@
 * app-devicecategory: https://app-devicecategory.herokuapp.com/
 * Documentação Swagger: https://appdevicecategory.herokuapp.com/swagger-ui.html/
 
+#### OBS: 
+* Para utilizar o deploy, precisa aguardar alguns segundos até o servidor do heroku sair do estado de espera, por ser uma conta gratuita os servidores do heroku ficam em mode de espera.
