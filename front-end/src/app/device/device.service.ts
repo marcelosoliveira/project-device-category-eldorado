@@ -8,7 +8,7 @@ import { Device } from "./device";
 })
 export class DeviceService {
 
-    private baseUrl = 'https://appdevicecategory.herokuapp.com/api/v1/device';
+    private baseUrl = 'http://localhost:3000/api/v1/device';
 
     constructor(private httpClient: HttpClient) {};
 

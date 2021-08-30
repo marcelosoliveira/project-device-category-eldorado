@@ -8,7 +8,7 @@ import { Category } from "./category";
 })
 export class CategoryService {
 
-    private baseUrl = 'https://appdevicecategory.herokuapp.com/api/v1/category';
+    private baseUrl = 'http://localhost:3000/api/v1/category';
 
     constructor(private httpClient: HttpClient) {};
 
