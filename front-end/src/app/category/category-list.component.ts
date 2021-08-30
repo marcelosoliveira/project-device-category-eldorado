@@ -26,14 +26,17 @@ export class CategoryListComponent implements OnInit {
     }
 
     public delete(id: number) {
-        if (confirm(`Are you sure you want to delete category?`).valueOf()) {
-            this.categoryService.deleteById(id).subscribe({
-                next: () => {
-                    this.retrieveAll();
-                },
-                error: ({ error }) => console.log(`${error}`),
-            });
-        }
+        this.categoryService.retrieveById(id).subscribe({
+            next: (category) => {
+                if (confirm(`Are you sure you want to delete the category ${category.name}?`)) {
+                    this.categoryService.deleteById(id).subscribe({
+                        next: () => {
+                            this.retrieveAll();
+                        },
+                        error: ({ error }) => console.log(`${error}`),
+                    });
+                }
+            },
+        });
     }
-
 }
