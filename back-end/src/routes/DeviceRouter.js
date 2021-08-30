@@ -1,16 +1,18 @@
 const express = require('express');
 const status = require('http-status-codes');
 
-const { listAllDevices, listAllDevicesFilter, createDevice, deleteDevice } = require('../controller/DeviceController');
+const { listAllDevices, findByIdDevice, listAllDevicesFilter, createDevice, deleteDevice } = require('../controller/DeviceController');
 const { fieldValidDevice, deviceNotFound } = require('../middlewares/DeviceExceptionHandler');
 
 const router = express.Router();
 
 router.get("/", listAllDevices);
 
-router.post("/create", fieldValidDevice, createDevice);
+router.get("/:id", deviceNotFound, findByIdDevice);
 
-router.get("/:id", listAllDevicesFilter);
+router.get("/category/:id", listAllDevicesFilter);
+
+router.post("/create", fieldValidDevice, createDevice);
 
 router.delete("/delete/:id", deviceNotFound, deleteDevice);
 

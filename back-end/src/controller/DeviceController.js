@@ -11,6 +11,17 @@ const listAllDevices = async (_req, res) => {
     }
 }
 
+const findByIdDevice = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const device = await deviceService.findById(id);
+
+        res.status(status.OK).send(device);
+    } catch (error) {
+        res.status(status.INTERNAL_SERVER_ERROR).send({ error: error.message });
+    }
+}
+
 const listAllDevicesFilter = async (req, res) => {
     try {
         const { id } = req.params;
@@ -44,6 +55,7 @@ const deleteDevice = async (req, res) => {
 
 module.exports = {
     listAllDevices,
+    findByIdDevice,
     listAllDevicesFilter,
     createDevice,
     deleteDevice,

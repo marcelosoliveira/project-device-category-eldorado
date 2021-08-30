@@ -41,6 +41,24 @@
           "tags": [
             "device"
           ],
+          "summary": "Busca dispositivo pelo id",
+          "description": "Busca dispositivo pelo id",
+          "operationId": "Get Device",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Insira um id de categoria.",
+            "required": true,
+            "type": "string"
+          }],
+          "responses": {}
+        } 
+      },
+      "/api/v1/device/category/{id}": {
+        "get": {
+          "tags": [
+            "device"
+          ],
           "summary": "Filtra dispositivos pelo id da categoria",
           "description": "Filtra dispositivos pelo id da categoria",
           "operationId": "Filtrar",
@@ -108,6 +126,24 @@
           "operationId": "List Category",
           "responses": {}
         }
+      },
+      "/api/v1/category/{id}": {
+        "get": {
+          "tags": [
+            "category"
+          ],
+          "summary": "Busca uma categoria pelo id",
+          "description": "Busca uma categoria pelo id",
+          "operationId": "Get Category",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Insira um id de categoria.",
+            "required": true,
+            "type": "string"
+          }],
+          "responses": {}
+        } 
       },
       "/api/v1/category/create": {
         "post": {

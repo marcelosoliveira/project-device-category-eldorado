@@ -10,6 +10,16 @@ const listAllCategory = async (_req, res) => {
     }
 }
 
+const findByIdCategory = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const category = await categoryService.findById(id);
+        res.status(status.OK).send(category);        
+    } catch (error) {
+        res.status(status.INTERNAL_SERVER_ERROR).send({ error: error.message });
+    }
+}
+
 const createCategory = async (req, res) => {
     try {
         const { name } = req.body;
@@ -32,6 +42,7 @@ const deleteCategory = async (req, res) => {
 
 module.exports = {
     listAllCategory,
+    findByIdCategory,
     createCategory,
     deleteCategory,
 }

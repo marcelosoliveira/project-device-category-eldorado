@@ -23,12 +23,12 @@ describe('Aplicação deve ter o endpoint GET `/device`', () => {
         const { json } = response;
         const firstDevice = json[0];
         const secondDevice = json[1];
-        expect(firstDevice.Name).toBe('Notbook');
-        expect(firstDevice.Color).toBe('Azul');
-        expect(firstDevice.PartNumber).toBe(1111);
-        expect(secondDevice.Name).toBe('Carro');
-        expect(secondDevice.Color).toBe('Verde');
-        expect(secondDevice.PartNumber).toBe(1121);
+        expect(firstDevice.name).toBe('Notbook');
+        expect(firstDevice.color).toBe('Azul');
+        expect(firstDevice.part_number).toBe(1111);
+        expect(secondDevice.name).toBe('Carro');
+        expect(secondDevice.color).toBe('Verde');
+        expect(secondDevice.part_number).toBe(1121);
       });
   });
 
@@ -42,20 +42,20 @@ describe('Aplicação deve ter o endpoint GET `/device`', () => {
           id_category: 1,
         });
     await frisby
-      .get(`${url}/device/${1}`)
+      .get(`${url}/device/category/${1}`)
       .expect('status', 200)
       .then((response) => {
         const { json } = response;
         const firstDevice = json[0];
         const secondDevice = json[1];
-        expect(firstDevice.Name).toBe('Notbook');
-        expect(firstDevice.Color).toBe('Azul');
-        expect(firstDevice.PartNumber).toBe(1111);
-        expect(firstDevice.Category).toBe('Eletronicos');
-        expect(secondDevice.Name).toBe('Computador');
-        expect(secondDevice.Color).toBe('Preto');
-        expect(secondDevice.PartNumber).toBe(1234);
-        expect(secondDevice.Category).toBe('Eletronicos');
+        expect(firstDevice.name).toBe('Notbook');
+        expect(firstDevice.color).toBe('Azul');
+        expect(firstDevice.part_number).toBe(1111);
+        expect(firstDevice.category).toBe('Eletronicos');
+        expect(secondDevice.name).toBe('Computador');
+        expect(secondDevice.color).toBe('Preto');
+        expect(secondDevice.part_number).toBe(1234);
+        expect(secondDevice.category).toBe('Eletronicos');
       });
   });
 });

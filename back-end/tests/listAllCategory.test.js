@@ -23,8 +23,8 @@ describe('Aplicação deve ter o endpoint GET `/category`', () => {
         const { json } = response;
         const firstCategory = json[0];
         const secondCategory = json[1];
-        expect(firstCategory.Name).toBe('Eletronicos');
-        expect(secondCategory.Name).toBe('Jardim');
+        expect(firstCategory.name).toBe('Eletronicos');
+        expect(secondCategory.name).toBe('Jardim');
       });
   });
 
@@ -40,7 +40,7 @@ describe('Aplicação deve ter o endpoint GET `/category`', () => {
       .then((response) => {
         const { json } = response;
         const firstCategory = json[json.length - 1];
-        expect(firstCategory.Name).toBe('Ortopedia');
+        expect(firstCategory.name).toBe('Ortopedia');
       });
   });
 });
