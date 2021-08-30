@@ -7,7 +7,7 @@ const {
 
 const url = 'http://localhost:3000/api/v1/category';
 
-describe('Aplicação deve ter o endpoint DELETE `/delete/:id`', () => {
+describe('Application must have DELETE endpoint `/delete/:id`', () => {
 
   beforeAll(async () => await deleteAndCreateDataBase());
 
@@ -17,7 +17,7 @@ describe('Aplicação deve ter o endpoint DELETE `/delete/:id`', () => {
 
   let id = 0;
 
-  it('Será validado que é possível excluir uma categoria com sucesso', async () => {
+  it('It will be validated that it is possible to delete a category successfully.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -35,17 +35,17 @@ describe('Aplicação deve ter o endpoint DELETE `/delete/:id`', () => {
       .expect('status', 200)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe(`Categoria deletada com sucesso Id: ${id}`);
+        expect(json.message).toBe(`Category successfully deleted Id: ${id}.`);
       });
   });
 
-  it('Será validado que não é possivel excluir uma categoria que não existe', async () => {
+  it('It will be validated that it is not possible to delete a category that does not exist.', async () => {
     await frisby
     .delete(`${url}/delete/${id}`)
     .expect('status', 404)
     .then((response) => {
       const { json } = response;
-      expect(json.message).toBe(`Categoria não encontrada! ID: ${id}`);
+      expect(json.message).toBe(`Category not found! ID: ${id}`);
     });
   });
 });

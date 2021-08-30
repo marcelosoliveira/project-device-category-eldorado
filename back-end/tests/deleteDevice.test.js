@@ -7,7 +7,7 @@ const {
 
 const url = 'http://localhost:3000/api/v1/device';
 
-describe('Aplicação deve ter o endpoint DELETE `/delete/:id`', () => {
+describe('Application must have DELETE endpoint `/delete/:id`', () => {
 
   beforeAll(async () => await deleteAndCreateDataBase());
 
@@ -17,7 +17,7 @@ describe('Aplicação deve ter o endpoint DELETE `/delete/:id`', () => {
 
   let id = 0
 
-  it('Será validado que é possível excluir um dispositivo com sucesso', async () => {
+  it('It will be validated that it is possible to delete a device successfully.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -38,17 +38,17 @@ describe('Aplicação deve ter o endpoint DELETE `/delete/:id`', () => {
       .expect('status', 200)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe(`Dispositivo deletado com sucesso Id: ${id}`);
+        expect(json.message).toBe(`Device successfully deleted Id: ${id}`);
       });
   });
 
-  it('Será validado que não é possivel excluir um dispositivo que não existe', async () => {
+  it('It will be validated that it is not possible to delete a device that does not exist.', async () => {
     await frisby
     .delete(`${url}/delete/${id}`)
     .expect('status', 404)
     .then((response) => {
       const { json } = response;
-      expect(json.message).toBe(`Dispositivo não encontrada! ID: ${id}`);
+      expect(json.message).toBe(`Device not found! ID: ${id}`);
     });
   });
 });

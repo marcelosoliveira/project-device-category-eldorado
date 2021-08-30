@@ -7,7 +7,7 @@ const {
 
 const url = 'http://localhost:3000/api/v1';
 
-describe('Aplicação deve ter o endpoint GET `/category`', () => {
+describe('Application must have endpoint GET `/category`', () => {
 
   beforeAll(async () => await deleteAndCreateDataBase());
 
@@ -15,7 +15,7 @@ describe('Aplicação deve ter o endpoint GET `/category`', () => {
 
   afterAll(async () => await closeConnection());
 
-  it('Será validado que é possível listar todas as categorias', async () => {
+  it('It will be validated that it is possible to list all categories.', async () => {
     await frisby
       .get(`${url}/category`)
       .expect('status', 200)
@@ -28,7 +28,7 @@ describe('Aplicação deve ter o endpoint GET `/category`', () => {
       });
   });
 
-  it('Será validado que é possível criar uma categoria e listar todas as categorias', async () => {
+  it('It will be validated that it is possible to create a category and list all categories.', async () => {
     await frisby
       .post(`${url}/category/create`,
         {

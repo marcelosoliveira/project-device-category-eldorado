@@ -7,7 +7,7 @@ const {
 
 const url = 'http://localhost:3000/api/v1/device';
 
-describe('Aplicação deve ter o endpoint POST `/create`', () => {
+describe('Application must have POST endpoint `/create`', () => {
 
   beforeAll(async () => await deleteAndCreateDataBase());
 
@@ -15,7 +15,7 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
 
   afterAll(async () => await closeConnection());
 
-  it('Será validado que é possível cadastrar um dispositivo com sucesso', async () => {
+  it('It will be validated that it is possible to successfully register a device.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -27,11 +27,11 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
       .expect('status', 201)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Dispositivo criado com sucesso");
+        expect(json.message).toBe("Device created successfully.");
       });
   });
 
-  it('Será validado que não é possível cadastrar dispositivo com o campo `color` maior que 16 caracteres', async () => {
+  it('It will be validated that it is not possible to register device with the `color` field greater than 16 characters.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -43,11 +43,11 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
       .expect('status', 400)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Campo cor inválido!");
+        expect(json.message).toBe("Invalid color field!");
       });
   });
 
-  it('Será validado que não é possível cadastrar dispositivo com o número de peça(part_number) iguais `part_number: 1111`', async () => {
+  it('It will be validated that it is not possible to register device with the same part number (part_number) `part_number: 1111`.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -59,11 +59,11 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
       .expect('status', 409)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Número de peça do dispositivo já existe!");
+        expect(json.message).toBe("Device part number already exists!");
       });
   });
 
-  it('Será validado que não é possível cadastrar dispositivo com o número da peça(part_number) negativo `part_number: -2222`', async () => {
+  it('It will be validated that it is not possible to register device with part number (part_number) negative `part_number: -2222`.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -75,11 +75,11 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
       .expect('status', 400)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Campo número da peça inválido!");
+        expect(json.message).toBe("Invalid part number field!");
       });
   });
 
-  it('Será validado que não é possível cadastrar dispositivo com o número da peça(part_number) menor que 1 `part_number: 0`', async () => {
+  it('It will be validated that it is not possible to register device with part number (part_number) less than 1 `part_number: 0`.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -91,11 +91,11 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
       .expect('status', 400)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Campo número da peça inválido!");
+        expect(json.message).toBe("Invalid part number field!");
       });
   });
 
-  it('Será validado que não é possível cadastrar dispositivo com categoria não cadastrada', async () => {
+  it('It will be validated that it is not possible to register device with unregistered category.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -107,11 +107,11 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
       .expect('status', 404)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Id de categoria não encontrado!");
+        expect(json.message).toBe("Category not found ID: 6!");
       });
   });
 
-  it('Será validado que o campo `name` é obrigatório', async () => {
+  it('It will be validated that the `name` field is mandatory.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -122,11 +122,11 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
       .expect('status', 400)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Campo nome inválido!");
+        expect(json.message).toBe("Invalid field name!");
       });
   });
 
-  it('Será validado que o campo `color` é obrigatório', async () => {
+  it('It will be validated that the `color` field is mandatory.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -137,11 +137,11 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
       .expect('status', 400)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Campo cor inválido!");
+        expect(json.message).toBe("Invalid color field!");
       });
   });
 
-  it('Será validado que o campo `part_number` é obrigatório', async () => {
+  it('It will be validated that the `part_number` field is mandatory.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -152,11 +152,11 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
       .expect('status', 400)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Campo número da peça inválido!");
+        expect(json.message).toBe("Invalid part number field!");
       });
   });
 
-  it('Será validado que o campo `id_category` é obrigatório', async () => {
+  it('It will be validated that the `id_category` field is mandatory.', async () => {
     await frisby
       .post(`${url}/create`,
         {
@@ -167,7 +167,7 @@ describe('Aplicação deve ter o endpoint POST `/create`', () => {
       .expect('status', 400)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe("Campo identificação de categoria inválido!");
+        expect(json.message).toBe("Invalid category identification field!");
       });
   });
 });

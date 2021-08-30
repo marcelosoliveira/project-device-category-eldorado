@@ -7,7 +7,7 @@ const {
 
 const url = 'http://localhost:3000/api/v1';
 
-describe('Aplicação deve ter o endpoint GET `/device`', () => {
+describe('Application must have endpoint GET `/device`', () => {
 
   beforeAll(async () => await deleteAndCreateDataBase());
 
@@ -15,7 +15,7 @@ describe('Aplicação deve ter o endpoint GET `/device`', () => {
 
   afterAll(async () => await closeConnection());
 
-  it('Será validado que é possível listar todos os dispositivos', async () => {
+  it('It will be validated that it is possible to list all devices.', async () => {
     await frisby
       .get(`${url}/device`)
       .expect('status', 200)
@@ -32,7 +32,7 @@ describe('Aplicação deve ter o endpoint GET `/device`', () => {
       });
   });
 
-  it('Será validado que é possível listar todos os dispositivos filtrado pelo id da categoria', async () => {
+  it('It will be validated that it is possible to list all devices filtered by category id.', async () => {
     await frisby
       .post(`${url}/device/create`,
         {
