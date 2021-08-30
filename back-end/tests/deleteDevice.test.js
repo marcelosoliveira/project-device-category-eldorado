@@ -38,7 +38,7 @@ describe('Application must have DELETE endpoint `/delete/:id`', () => {
       .expect('status', 200)
       .then((response) => {
         const { json } = response;
-        expect(json.message).toBe(`Device successfully deleted Id: ${id}`);
+        expect(json.message).toBe(`Device successfully deleted Id: ${id}.`);
       });
   });
 

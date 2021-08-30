@@ -33,7 +33,7 @@ describe('Application must have POST endpoint `/create`', () => {
       .post(`${url}/create`,
         {
           name: `A developer's computer, is getting outdated to perform
-          projects and use frameworks that are currently on the market.`,
+          projects and use frameworks that are currently on the market....`,
         })
       .expect('status', 400)
       .then((response) => {

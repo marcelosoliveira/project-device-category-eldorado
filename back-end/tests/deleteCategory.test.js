@@ -45,7 +45,7 @@ describe('Application must have DELETE endpoint `/delete/:id`', () => {
     .expect('status', 404)
     .then((response) => {
       const { json } = response;
-      expect(json.message).toBe(`Category not found! ID: ${id}`);
+      expect(json.message).toBe(`Category not found! ID: ${id}!`);
     });
   });
 });
