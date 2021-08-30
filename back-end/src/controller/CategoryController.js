@@ -24,7 +24,7 @@ const createCategory = async (req, res) => {
     try {
         const { name } = req.body;
         await categoryService.createCategory(name);
-        res.status(status.CREATED).send({ message: "Categoria criada com sucesso!" });
+        res.status(status.CREATED).send({ message: "Category created successfully." });
     } catch (error) {
         res.status(status.INTERNAL_SERVER_ERROR).send({ error: error.message });
     }
@@ -34,7 +34,7 @@ const deleteCategory = async (req, res) => {
     try {
         const { id } = req.params;
         await categoryService.deleteCategory(id);
-        res.status(status.OK).send({ message: `Categoria deletada com sucesso Id: ${id}`});
+        res.status(status.OK).send({ message: `Category successfully deleted Id: ${id}.`});
     } catch (error) {
         res.status(status.INTERNAL_SERVER_ERROR).send({ error: error.message });
     }
