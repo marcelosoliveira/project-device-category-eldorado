@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-      "title": "Projeto Dispositivos com Categorias",
-      "description": "API Dispositivos com Categorias swagger",
+      "title": "Category Devices Project",
+      "description": "API Devices with swagger Categories",
       "termsOfService": "http://localhost:3000/swagger-ui.html",
       "contact": {
         "email": "msbobsk8@gmail.com"
@@ -14,11 +14,11 @@
     "tags": [
         {
           "name": "device",
-          "description": "Recurso do dispositivo"
+          "description": "Device resource"
         },
         {
           "name": "category",
-          "description": "Recurso da categoria"
+          "description": "Category resource"
         }
       ],
     "schemes": [
@@ -30,8 +30,8 @@
           "tags": [
             "device"
           ],
-          "summary": "Lista todos dispositivos",
-          "description": "Lista todos dispositivos",
+          "summary": "List all devices",
+          "description": "List all devices",
           "operationId": "List Devices",
           "responses": {}
         }
@@ -41,13 +41,13 @@
           "tags": [
             "device"
           ],
-          "summary": "Busca dispositivo pelo id",
-          "description": "Busca dispositivo pelo id",
+          "summary": "Search device by id",
+          "description": "Search device by id",
           "operationId": "Get Device",
           "parameters": [{
             "name": "id",
             "in": "path",
-            "description": "Insira um id de categoria.",
+            "description": "Enter a category id.",
             "required": true,
             "type": "string"
           }],
@@ -59,13 +59,13 @@
           "tags": [
             "device"
           ],
-          "summary": "Filtra dispositivos pelo id da categoria",
-          "description": "Filtra dispositivos pelo id da categoria",
-          "operationId": "Filtrar",
+          "summary": "Filter devices by category id",
+          "description": "Filter devices by category id",
+          "operationId": "Filter device",
           "parameters": [{
             "name": "id",
             "in": "path",
-            "description": "Insira um id de categoria.",
+            "description": "Enter a category id.",
             "required": true,
             "type": "string"
           }],
@@ -77,8 +77,8 @@
           "tags": [
             "device"
           ],
-          "summary": "Cadastro de dispositivos",
-          "description": "Cadastra Dispositivos com de uma categoria.",
+          "summary": "Device Registration",
+          "description": "Register Devices of a Category.",
           "operationId": "Devices",
           "requestBody": {
             "content": {
@@ -103,13 +103,13 @@
           "tags": [
             "device"
           ],
-          "summary": "Deleta dispositivo pelo id",
-          "description": "Deleta dispositivo pelo id",
-          "operationId": "Del Device",
+          "summary": "Delete device by id",
+          "description": "Delete device by id",
+          "operationId": "Delete Device",
           "parameters": [{
             "name": "id",
             "in": "path",
-            "description": "Insira um id de dispositivo.",
+            "description": "Enter a device id.",
             "required": true,
             "type": "string"
           }],
@@ -121,8 +121,8 @@
           "tags": [
             "category"
           ],
-          "summary": "Lista todas categorias",
-          "description": "Lista todas categorias",
+          "summary": "List all categories",
+          "description": "List all categories",
           "operationId": "List Category",
           "responses": {}
         }
@@ -132,13 +132,13 @@
           "tags": [
             "category"
           ],
-          "summary": "Busca uma categoria pelo id",
-          "description": "Busca uma categoria pelo id",
+          "summary": "Search a category by id",
+          "description": "Search a category by id",
           "operationId": "Get Category",
           "parameters": [{
             "name": "id",
             "in": "path",
-            "description": "Insira um id de categoria.",
+            "description": "Enter a category id.",
             "required": true,
             "type": "string"
           }],
@@ -150,8 +150,8 @@
           "tags": [
             "category"
           ],
-          "summary": "Cadastro de categorias",
-          "description": "Cadastra categorias.",
+          "summary": "Category registration",
+          "description": "Category registration.",
           "operationId": "Category",
           "requestBody": {
             "content": {
@@ -173,13 +173,13 @@
           "tags": [
             "category"
           ],
-          "summary": "Deleta categoria pelo id",
-          "description": "Deleta categoria pelo id",
+          "summary": "Delete category by id",
+          "description": "Delete category by id",
           "operationId": "Del Category",
           "parameters": [{
             "name": "id",
             "in": "path",
-            "description": "Insira um id de categoria.",
+            "description": "Enter a category id.",
             "required": true,
             "type": "string"
           }],
