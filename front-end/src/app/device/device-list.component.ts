@@ -46,7 +46,7 @@ export class DeviceListComponent implements OnInit {
     }
 
     public delete(id: number) {
-        if (confirm("Tem certeza que deseja deletar dispositivo?").valueOf()) {
+        if (confirm(`Are you sure you want to delete device?`).valueOf()) {
             this.deviceService.deleteById(id).subscribe({
                 next: () => {
                     this.retrieveAll();
