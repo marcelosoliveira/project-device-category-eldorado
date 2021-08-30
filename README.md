@@ -2,7 +2,7 @@
 
 ## Teste técnico para vaga Dev. Back End.
 
-###Desafio:
+### Desafio:
 
 * Desenvolva uma aplicação web de gerenciamento de dispositivo simples.
 * Os dispositivos têm (Id, categoria, cor, número). A categoria do dispositivo também deve ser gerenciada pela aplicação e cada categoria tem um (id, nome).
@@ -23,9 +23,18 @@
 * Testes no back-end não são obrigatorios, porém serão um extra valioso.
 * Deve ser feito o deploy da aplicação completa (AWS, GCP, Heroku ou qualquer outra de sua escolha).
 * Principais tecnologias que devem ser utilizadas no desenvolvimento
-Node.js
-Angular
-Mysql
+	Node.js
+	Angular
+	Mysql
+
+### Utilização do Backend e Frontend
+* Para inicializar o uso da aplicação, utilize npm install, assim instalando as depedências.
+
+### Testes Back-End
+* Foi utilizado as bibliotecas jest e frisby para realizar testes de integração.
+
+### Banco de dados
+* Para popular o banco de dados execute os testes(npm test), certifique-se que as variáveis de ambientes estejam inicializadas.
 
 ### Deploy Heroku
 * app-devicecategory: https://app-devicecategory.herokuapp.com/
