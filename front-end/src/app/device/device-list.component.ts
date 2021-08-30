@@ -46,14 +46,18 @@ export class DeviceListComponent implements OnInit {
     }
 
     public delete(id: number) {
-        if (confirm(`Are you sure you want to delete device?`).valueOf()) {
-            this.deviceService.deleteById(id).subscribe({
-                next: () => {
-                    this.retrieveAll();
-                },
-                error: ({ error }) => console.log(`${error}`),
-            });
-        }
+        this.deviceService.retrieveById(id).subscribe({
+            next: (device) => {
+                if (confirm(`Are you sure you want to delete the device ${device.name}?`)) {
+                    this.deviceService.deleteById(id).subscribe({
+                        next: () => {
+                            this.retrieveAll();
+                        },
+                        error: ({ error }) => console.log(`${error}`),
+                    });
+                }
+            },
+        });
     }
 
     set filter(value: string) {
