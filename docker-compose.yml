@@ -1,0 +1,44 @@
+version: '3.3'
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-volume:
+
+services:
+  app:
+    container_name: "frontend-angular"
+    image: 10082020/app-device-category:angular
+    networks:
+      - app-network
+    ports:
+      - 8080:8080
+  
+  api:
+    container_name: "backend-node"
+    image: 10082020/app-device-category:node
+    networks:
+      - app-network
+    depends_on:
+      - database-mysql
+    ports:
+      - 3000:3000
+
+  mysql:
+    container_name: "database-mysql"
+    image: mysql:latest
+    networks:
+      - app-network
+    hostnames:
+      - localhost
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-volume:/data/db
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: device_category
+      
