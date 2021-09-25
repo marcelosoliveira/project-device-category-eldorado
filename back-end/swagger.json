@@ -98,6 +98,39 @@
           "responses": {}
         }
       },
+      "/api/v1/device/update/{id}": {
+        "put": {
+          "tags": [
+            "device"
+          ],
+          "summary": "Device Update",
+          "description": "Update Devices of a Category.",
+          "operationId": "Update Device",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Enter a device id for update.",
+            "required": true,
+            "type": "string"
+          }],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/device"
+                },
+                "example": {
+                    "name": "Computador",
+                    "color": "Preto",
+                    "part_number": 1254,
+                    "id_category": 1
+                }
+              }
+            }
+          },
+          "responses": {}
+        }
+      },
       "/api/v1/device/delete/{id}": {
         "delete": {
           "tags": [
@@ -168,6 +201,36 @@
           "responses": {}
         }
       },
+      "/api/v1/category/update/{id}": {
+        "put": {
+          "tags": [
+            "category"
+          ],
+          "summary": "Category Update",
+          "description": "Category update.",
+          "operationId": "Update Category",
+          "parameters": [{
+            "name": "id",
+            "in": "path",
+            "description": "Enter a category id for update.",
+            "required": true,
+            "type": "string"
+          }],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/category"
+                },
+                "example": {
+                    "name": "Ortopedia"
+                }
+              }
+            }
+          },
+          "responses": {}
+        }
+      },
       "/api/v1/category/delete/{id}": {
         "delete": {
           "tags": [
@@ -175,7 +238,7 @@
           ],
           "summary": "Delete category by id",
           "description": "Delete category by id",
-          "operationId": "Del Category",
+          "operationId": "Delete Category",
           "parameters": [{
             "name": "id",
             "in": "path",
