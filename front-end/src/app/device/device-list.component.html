@@ -35,6 +35,7 @@
             <th>Color</th>
             <th>Part Number</th>
             <th>Category</th>
+            <th>Update</th>
             <th>Delete</th>
         </tr>        
     </thead>
@@ -44,6 +45,11 @@
             <td>{{ device.color}}</td>
             <td>{{ device.part_number }}</td>
             <td>{{ device.category }}</td>
+            <td>
+                <a [routerLink]="['/device/update', device.id]" class="btn btn-primary" >
+                    Update
+                </a>
+            </td>
             <td>
                 <button (click)="delete(device.id)" class="btn btn-danger" style="margin-top: auto;">
                     Delete

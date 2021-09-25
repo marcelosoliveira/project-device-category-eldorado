@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-// import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { Device } from "./device";
 import { DeviceService } from "./device.service";
 import { CategoryService } from "../category/category.service";
@@ -14,11 +14,11 @@ export class DeviceCreateComponent implements OnInit {
     public device!: Device;
     public category: Category[] = [];
 
-    constructor(private deviceService: DeviceService, 
+    constructor(private activatedRoute: ActivatedRoute, private deviceService: DeviceService, 
         private categoryService: CategoryService) {};    
     
     ngOnInit(): void {
-        this.deviceId = [];
+        this.deviceId = +this.activatedRoute.snapshot.params.id || [];
         this.retrieveDeviceById();
         this.retrieveAllCategory();
     }

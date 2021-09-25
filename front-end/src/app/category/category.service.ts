@@ -22,11 +22,16 @@ export class CategoryService {
 
     public save(category: Category): Observable<Category> {
         const object = { name: category.name };
-        return this.httpClient.post<Category>(`${this.baseUrl}/create`, object);
+
+        if (category.id) {
+            return this.httpClient.put<Category>(`${this.baseUrl}/update/${category.id}`, object);
+        } else {
+            return this.httpClient.post<Category>(`${this.baseUrl}/create`, object);
+        }
     }
 
     public deleteById(id: number): Observable<any> {
         return this.httpClient.delete<any>(`${this.baseUrl}/delete/${id}`);
     }
-   
+
 }

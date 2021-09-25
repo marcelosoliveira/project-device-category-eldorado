@@ -22,6 +22,10 @@ const createCategory = async (name) => {
     await categoryModel.createCategory(name);
 }
 
+const updateCategory = async (id, name) => {
+    await categoryModel.updateCategory(id, name);
+}
+
 const deleteCategory  = async (id) => {
     await categoryModel.deleteCategory(id);
 }
@@ -31,5 +35,6 @@ module.exports = {
     findByCategory,
     findById,
     createCategory,
+    updateCategory,
     deleteCategory,
 }

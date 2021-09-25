@@ -30,6 +30,17 @@ const createCategory = async (req, res) => {
     }
 }
 
+const updateCategory = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { name } = req.body;
+        await categoryService.updateCategory(id, name);
+        res.status(status.OK).send({ message: `Category update successfully. ID: ${id}` });
+    } catch (error) {
+        res.status(status.INTERNAL_SERVER_ERROR).send({ error: error.message });
+    }    
+}
+
 const deleteCategory = async (req, res) => {
     try {
         const { id } = req.params;
@@ -44,5 +55,6 @@ module.exports = {
     listAllCategory,
     findByIdCategory,
     createCategory,
+    updateCategory,
     deleteCategory,
 }

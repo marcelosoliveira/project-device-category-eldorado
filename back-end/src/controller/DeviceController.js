@@ -43,6 +43,17 @@ const createDevice = async (req, res) => {
     }
 }
 
+const updateDevice = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { name, color, part_number, id_category } = req.body;
+        await deviceService.updateDevice(id, name, color, part_number, id_category);
+        res.status(status.OK).send({ message: `Device update successfully. ID: ${id}` });
+    } catch (error) {
+        res.status(status.INTERNAL_SERVER_ERROR).send({ error: error.message });
+    }    
+}
+
 const deleteDevice = async (req, res) => {
     try {
         const { id } = req.params;
@@ -58,5 +69,6 @@ module.exports = {
     findByIdDevice,
     listAllDevicesFilter,
     createDevice,
+    updateDevice,
     deleteDevice,
 }

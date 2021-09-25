@@ -1,7 +1,8 @@
 const express = require('express');
 const status = require('http-status-codes');
 
-const { createCategory, listAllCategory, findByIdCategory, deleteCategory } = require('../controller/CategoryController');
+const { createCategory, listAllCategory, updateCategory,
+    findByIdCategory, deleteCategory } = require('../controller/CategoryController');
 const { fieldValidCategory, categoryExists, categoryNotFound } = require('../middlewares/CategoryExceptionHandler');
 
 const router = express.Router();
@@ -11,6 +12,8 @@ router.get("/", listAllCategory);
 router.get("/:id", categoryNotFound, findByIdCategory);
 
 router.post("/create", fieldValidCategory, categoryExists, createCategory);
+
+router.put("/update/:id", categoryNotFound, fieldValidCategory, updateCategory);
 
 router.delete("/delete/:id", categoryNotFound, deleteCategory);
 

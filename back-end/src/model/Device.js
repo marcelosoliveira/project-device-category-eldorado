@@ -33,6 +33,12 @@ const findById = async (id) => {
     return device[0];
 }
 
+const updateDevice = async (id, name, color, part_number, id_category) => {
+    await conn.execute(`UPDATE device SET name = ?, color = ?, part_number = ?,
+    id_category = ? WHERE id = ?`,
+    [name, color, part_number, id_category, id]);
+}
+
 const deleteDevice = async (id) => {
     await conn.execute(`DELETE FROM device WHERE id = ?`, [id]);
 }
@@ -44,5 +50,6 @@ module.exports = {
     createDevice,
     findByDevice,
     findById,
+    updateDevice,
     deleteDevice,
 }

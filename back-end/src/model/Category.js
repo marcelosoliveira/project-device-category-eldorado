@@ -22,6 +22,10 @@ const createCategory = async (name) => {
     await conn.execute(`INSERT INTO category(name) VALUES(?)`, [name]);
 }
 
+const updateCategory = async (id, name) => {
+    await conn.execute(`UPDATE category SET name = ? WHERE id = ?`, [name, id]);
+}
+
 const deleteCategory = async (id) => {
     await conn.execute(`DELETE FROM category WHERE id = ?`, [id]);
 }
@@ -31,5 +35,6 @@ module.exports = {
     findByCategory,
     findById,
     createCategory,
+    updateCategory,
     deleteCategory,
 }

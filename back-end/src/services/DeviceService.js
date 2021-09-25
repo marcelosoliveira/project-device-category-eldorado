@@ -16,6 +16,10 @@ const createDevice = async (name, color, part_number, id_category) => {
     await deviceModel.createDevice(name, color, part_number, id_category);
 }
 
+const updateDevice = async (id, name, color, part_number, id_category) => {
+    await deviceModel.updateDevice(id, name, color, part_number, id_category);
+}
+
 const findByDevice = async (part_number) => {
     const device = await deviceModel.findByDevice(part_number);
 
@@ -36,6 +40,7 @@ module.exports = {
     listAllDevices,
     listAllDevicesFilter,
     createDevice,
+    updateDevice,
     findByDevice,
     findById,
     deleteDevice,

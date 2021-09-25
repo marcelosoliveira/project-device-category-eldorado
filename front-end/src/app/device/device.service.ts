@@ -23,11 +23,16 @@ export class DeviceService {
     public save(device: Device): Observable<Device> {
         const object = { name: device.name, color: device.color,
             part_number: device.part_number, id_category: Number(device.id_category) };
-        return this.httpClient.post<Device>(`${this.baseUrl}/create`, object);
+
+        if (device.id) {
+            return this.httpClient.put<Device>(`${this.baseUrl}/update/${device.id}`, object);
+        } else {
+            return this.httpClient.post<Device>(`${this.baseUrl}/create`, object);
+        }
     }
 
     public deleteById(id: number): Observable<any> {
         return this.httpClient.delete<any>(`${this.baseUrl}/delete/${id}`);
     }
-   
+
 }

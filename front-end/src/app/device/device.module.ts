@@ -22,6 +22,10 @@ import { DeviceListComponent } from "./device-list.component";
                 path: 'device/create',
                 component: DeviceCreateComponent,
             },
+            {
+                path: 'device/update/:id',
+                component: DeviceCreateComponent,
+            }
         ]),
     ]    
 })

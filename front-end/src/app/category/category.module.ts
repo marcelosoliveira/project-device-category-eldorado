@@ -22,6 +22,10 @@ import { CategoryListComponent } from "./category-list.component";
                 path: 'category/create',
                 component: CategoryCreateComponent,
             },
+            {
+                path: 'category/update/:id',
+                component: CategoryCreateComponent,
+            }
         ]),
     ]    
 })
