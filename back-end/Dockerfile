@@ -4,3 +4,6 @@ COPY ./package*.json ./
 RUN npm install
 COPY . .
 CMD ["node", "index.js"]
+
+# FROM mysql:latest
+# COPY ./db/ /docker-entrypoint-initdb.d/

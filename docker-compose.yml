@@ -22,13 +22,13 @@ services:
     networks:
       - app-network
     depends_on:
-      - database-mysql
+      - database
     ports:
       - 3000:3000
 
-  mysql:
+  database:
     container_name: "database-mysql"
-    image: mysql:latest
+    image: 10082020/app-device-category:mysql
     networks:
       - app-network
     hostnames:
@@ -36,7 +36,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - mysql-volume:/data/db
+      - mysql-volume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_PASSWORD: admin
