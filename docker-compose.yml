@@ -1,7 +1,8 @@
-version: '3.3'
+version: '3.5'
 
 networks:
   app-network:
+    name: app-network
     driver: bridge
 
 volumes:
@@ -9,7 +10,7 @@ volumes:
 
 services:
   app:
-    container_name: "frontend-angular"
+    container_name: frontend-angular
     image: 10082020/app-device-category:angular
     networks:
       - app-network
@@ -17,7 +18,7 @@ services:
       - 8080:8080
   
   api:
-    container_name: "backend-node"
+    container_name: backend-node
     image: 10082020/app-device-category:node
     networks:
       - app-network
@@ -25,20 +26,27 @@ services:
       - database
     ports:
       - 3000:3000
+    environment:
+      HOSTNAME: '172.17.0.1'
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: device_category
+      MYSQL_PORT: '3306'
+      PORT: '3000'
 
   database:
-    container_name: "database-mysql"
+    container_name: database-mysql
     image: 10082020/app-device-category:mysql
     networks:
       - app-network
-    hostnames:
-      - localhost
     ports:
       - 3306:3306
     volumes:
       - mysql-volume:/var/lib/mysql
     environment:
+      MYSQL_HOST: localhost
       MYSQL_ROOT_PASSWORD: admin
+      MYSQL_USER: root
       MYSQL_PASSWORD: admin
       MYSQL_DATABASE: device_category
       

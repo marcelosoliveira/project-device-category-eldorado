@@ -40,5 +40,10 @@
 * app-devicecategory: https://app-devicecategory.herokuapp.com/
 * Documentação Swagger: https://appdevicecategory.herokuapp.com/swagger-ui.html/
 
+### Executar pelo Docker
+* Inicie o console na pasta raiz do projeto, onde existe o arquivo docker-compose.yml e digite o comando || docker-compose up -d || assim o docker vai baixar as imagens customizadas para executar os containers.
+* Para acessar a aplicação digite o endereço || http://localhost:8080 || e para acessar a documentação swagger || http://localhost:3000/swagger-ui.html ||
+* Para destruir os containers, inicie o console e digite o comando || docker-compose down ||
+
 #### OBS: 
 * Para utilizar o deploy, precisa aguardar alguns segundos até o servidor do heroku sair do estado de espera, por ser uma conta gratuita os servidores do heroku ficam em mode de espera.
